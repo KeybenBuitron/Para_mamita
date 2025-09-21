@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flores Amarillas para Magdalena</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fff8e1 0%, #fff3c4 50%, #ffecb3 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Flores flotantes de fondo */
+        .flower {
+            position: absolute;
+            color: #ffd54f;
+            font-size: 2rem;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.7;
+        }
+
+        .flower:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+        .flower:nth-child(2) { top: 20%; right: 15%; animation-delay: 1s; }
+        .flower:nth-child(3) { top: 60%; left: 5%; animation-delay: 2s; }
+        .flower:nth-child(4) { top: 70%; right: 10%; animation-delay: 3s; }
+        .flower:nth-child(5) { top: 30%; left: 50%; animation-delay: 4s; }
+        .flower:nth-child(6) { top: 80%; left: 30%; animation-delay: 5s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header {
+            margin-bottom: 3rem;
+        }
+
+        .title {
+            font-size: 3.5rem;
+            color: #e65100;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 1rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            color: #f57c00;
+            font-style: italic;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .flower-bouquet {
+            margin: 3rem 0;
+            position: relative;
+            animation: fadeIn 1s ease-out 1s both;
+        }
+
+        .bouquet-container {
+            display: inline-block;
+            position: relative;
+            margin: 2rem 0;
+        }
+
+        .main-flower {
+            font-size: 8rem;
+            color: #ffd54f;
+            display: inline-block;
+            animation: pulse 2s ease-in-out infinite;
+            text-shadow: 0 0 20px rgba(255, 213, 79, 0.5);
+        }
+
+        .surrounding-flowers {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .surrounding-flowers span {
+            position: absolute;
+            font-size: 3rem;
+            color: #ffecb3;
+            animation: rotate 4s linear infinite;
+        }
+
+        .surrounding-flowers span:nth-child(1) { top: -60px; left: -60px; animation-delay: 0s; }
+        .surrounding-flowers span:nth-child(2) { top: -60px; right: -60px; animation-delay: 0.5s; }
+        .surrounding-flowers span:nth-child(3) { bottom: -60px; left: -60px; animation-delay: 1s; }
+        .surrounding-flowers span:nth-child(4) { bottom: -60px; right: -60px; animation-delay: 1.5s; }
+        .surrounding-flowers span:nth-child(5) { top: -30px; left: -90px; animation-delay: 2s; }
+        .surrounding-flowers span:nth-child(6) { top: -30px; right: -90px; animation-delay: 2.5s; }
+        .surrounding-flowers span:nth-child(7) { bottom: -30px; left: -90px; animation-delay: 3s; }
+        .surrounding-flowers span:nth-child(8) { bottom: -30px; right: -90px; animation-delay: 3.5s; }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .message {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 2rem 0;
+            animation: slideInUp 1s ease-out 1.5s both;
+        }
+
+        .message h2 {
+            color: #e65100;
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .message p {
+            color: #5d4037;
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .heart {
+            color: #e91e63;
+            font-size: 2rem;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+        }
+
+        .footer {
+            margin-top: 3rem;
+            color: #8d6e63;
+            font-size: 1.1rem;
+            animation: fadeIn 1s ease-out 2s both;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .title { font-size: 2.5rem; }
+            .subtitle { font-size: 1.4rem; }
+            .main-flower { font-size: 6rem; }
+            .message h2 { font-size: 1.8rem; }
+            .message p { font-size: 1.1rem; }
+            .container { padding: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Flores flotantes de fondo -->
+    <div class="flower">🌻</div>
+    <div class="flower">🌼</div>
+    <div class="flower">🌻</div>
+    <div class="flower">🌼</div>
+    <div class="flower">🌻</div>
+    <div class="flower">🌼</div>
+
+    <div class="container">
+        <div class="header">
+            <h1 class="title">Para Magdalena Yance Rojas</h1>
+            <p class="subtitle">Con todo mi amor y cariño</p>
+        </div>
+
+        <div class="flower-bouquet">
+            <div class="bouquet-container">
+                <div class="surrounding-flowers">
+                    <span>🌼</span>
+                    <span>🌻</span>
+                    <span>🌼</span>
+                    <span>🌻</span>
+                    <span>🌼</span>
+                    <span>🌻</span>
+                    <span>🌼</span>
+                    <span>🌻</span>
+                </div>
+                <div class="main-flower">🌻</div>
+            </div>
+        </div>
+
+        <div class="message">
+            <h2>Querida Mamá Magdalena</h2>
+            <p>Estas flores amarillas son como el sol que ilumina nuestros días. Cada pétalo representa un momento de felicidad que me has dado.</p>
+            <p>Tu nombre, Magdalena, significa "torre de fortaleza" y eso es exactamente lo que eres para mí: mi fortaleza, mi refugio, mi amor incondicional.</p>
+            <p>Que estas flores amarillas te traigan la misma alegría y calidez que tú traes a mi vida cada día.</p>
+            <p>Te amo infinitamente <span class="heart">💛</span></p>
+        </div>
+
+        <div class="footer">
+            <p>Hecho con amor para la mejor mamá del mundo</p>
+        </div>
+    </div>
+
+    <script>
+        // Agregar más flores dinámicamente
+        function createFloatingFlower() {
+            const flower = document.createElement('div');
+            flower.className = 'flower';
+            flower.innerHTML = Math.random() > 0.5 ? '🌻' : '🌼';
+            flower.style.left = Math.random() * 100 + '%';
+            flower.style.top = Math.random() * 100 + '%';
+            flower.style.animationDuration = (Math.random() * 3 + 3) + 's';
+            flower.style.animationDelay = Math.random() * 2 + 's';
+            
+            document.body.appendChild(flower);
+            
+            // Remover la flor después de la animación
+            setTimeout(() => {
+                if (flower.parentNode) {
+                    flower.parentNode.removeChild(flower);
+                }
+            }, 8000);
+        }
+
+        // Crear flores flotantes cada 2 segundos
+        setInterval(createFloatingFlower, 2000);
+
+        // Efecto de partículas al hacer clic
+        document.addEventListener('click', function(e) {
+            for (let i = 0; i < 5; i++) {
+                setTimeout(() => {
+                    const particle = document.createElement('div');
+                    particle.innerHTML = '✨';
+                    particle.style.position = 'absolute';
+                    particle.style.left = e.clientX + 'px';
+                    particle.style.top = e.clientY + 'px';
+                    particle.style.fontSize = '1.5rem';
+                    particle.style.pointerEvents = 'none';
+                    particle.style.zIndex = '1000';
+                    particle.style.animation = 'float 2s ease-out forwards';
+                    
+                    document.body.appendChild(particle);
+                    
+                    setTimeout(() => {
+                        if (particle.parentNode) {
+                            particle.parentNode.removeChild(particle);
+                        }
+                    }, 2000);
+                }, i * 100);
+            }
+        });
+    </script>
+</body>
+</html>
